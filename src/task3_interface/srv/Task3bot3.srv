@@ -1,0 +1,7 @@
+float64 acceleration 
+float64 constant_speed
+float64 stop_speed
+---
+bool success
+float64 traveled_distance
+string message

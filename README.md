@@ -31,20 +31,24 @@ Note: Ensure your laptop is connected to the ESP32 Wi-Fi network before running 
 1. Run the Main Robot Node (Sensors & API)
 This node establishes the UDP connection, calibrates the IMU, and listens for /cmd_vel commands.
 
->>> ros2 run api_esp32_burger_robot task_1_pub
+ ros2 run api_esp32_burger_robot task_1_pub
+ 
  2. Teleoperation (Keyboard Control)
 Open a new terminal, source the workspace, and run the teleop node:
->>> ros2 run api_esp32_burger_robot teleop_keyboard
->>> Controls: W (Forward), S (Backward), A (Left), D (Right), Q (Stop), E (Speed +/-).
 
-3. Drive Straight with Acceleration (Service Server)
+ ros2 run api_esp32_burger_robot teleop_keyboard
+ 
+ Controls: W (Forward), S (Backward), A (Left), D (Right), Q (Stop), E (Speed +/-).
+
+4. Drive Straight with Acceleration (Service Server)
 To test the custom 3-phase motion service, close the previous nodes and open a new terminal:
->>> ros2 run api_esp32_burger_robot Task3_bot
+
+ros2 run api_esp32_burger_robot Task3_bot
 
 Wait for the terminal to display Task 4 Service (/drive_straight_acc) is Ready!.
 Then, open a second terminal and call the service with your desired parameters:
 
->>> ros2 service call /drive_straight_acc task3_interface/srv/Task3bot3 "{acceleration: 2.0, constant_speed: 0.2, stop_speed: 1.5}"
+ ros2 service call /drive_straight_acc task3_interface/srv/Task3bot3 "{acceleration: 2.0, constant_speed: 0.2, stop_speed: 1.5}"
    ```bash
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws/src
